@@ -7,9 +7,15 @@
 
 
 
+button {
+  width: 200px;
+  height: 50px;
+  /*margin: 0 auto;*/
+}
 
-
-
+.buttondiv {
+  text-align: center;
+}
 
 
 
