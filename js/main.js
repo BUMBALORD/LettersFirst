@@ -5,8 +5,8 @@ $(document).ready(function() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   ctx.strokeStyle ='#000000';
-  ctx.lineJoin = 'round';
-  ctx.lineCap = 'round';
+  ctx.lineJoin = 'bevel';
+  ctx.lineCap = 'square';
 
   let isDrawing = false;
   let lastX = 0;
@@ -16,7 +16,7 @@ $(document).ready(function() {
 
   function draw(e) {
     if (!isDrawing) return;
-    ctx.strokeStyle = `hsl(${hue},100%, 50%)`;
+    ctx.strokeStyle = `hsl(${hue},90%, 0%)`;
     ctx.beginPath();
     ctx.moveTo(lastX, lastY);
     ctx.lineTo(e.offsetX, e.offsetY);
@@ -47,4 +47,9 @@ $(document).ready(function() {
   });
   canvas.addEventListener('mouseup', () => isDrawing = false);
   canvas.addEventListener('mouseout', () => isDrawing = false);
+
+  $('#clear').click(function(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  });
+
 });
